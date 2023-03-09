@@ -7,10 +7,10 @@ import {
   FlatList,
   Modal,
 } from 'react-native';
+import normalize from 'react-native-normalize';
 import Entypo from 'react-native-vector-icons/Entypo';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import normalize from 'react-native-normalize';
 
 const TopNavBar = () => {
   const cities = [
@@ -89,34 +89,34 @@ const TopNavBar = () => {
 
 const styles = StyleSheet.create({
   topNav: {
-    width: 428,
-    height: 78,
-    marginBottom: 5,
+    width:normalize(428),
+    height:normalize(78),
+    marginBottom:normalize(5),
   },
   locIcon: {
-    paddingTop: 29,
-    paddingLeft: 21,
-    paddingBottom: 29,
+    paddingTop:normalize(29),
+    paddingLeft:normalize(21),
+    paddingBottom:normalize(30),
   },
   locationText: {
     color: '#FFF',
     position: 'absolute',
-    top: 29,
-    left: 45,
+    top:normalize(29),
+    left:normalize(45),
   },
   drop: {
     position: 'absolute',
-    left: 120,
-    top: 29,
+    left:normalize(120),
+    top:normalize(29),
   },
   bell: {
     position: 'absolute',
-    left: 310,
-    bottom: 30,
+    left:normalize (300),
+    bottom:normalize(30),
   },
   menu: {
-    left: 360,
-    bottom: 55,
+    left:normalize(340),
+    bottom:normalize(55),
   },
   modalContainer: {
     flex: 1,

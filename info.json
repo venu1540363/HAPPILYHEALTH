@@ -1,13 +1,16 @@
 {
 	"scrolling" : [
 		{
-			"name" : "vfffv"
+			"title": "Swathfit Packages",
+			"name" : "Now is a good time for health check up.Book Now!"
 		},
 		{
-			"name" : "vvvvbfgb"
+			"title": "My Nutrigene",
+			"name" : "Find the perfect diet plan for you with this DNA based test.30% exclusive discount.Book Now!"
 		},
 		{
-			"name" : "gbnddcbn"
+			"title": "Genomepatri Immunity",
+			"name" : "DNA based assessment of factors that affect your overall immunity and risk of infection."
 		}
 	]
 }

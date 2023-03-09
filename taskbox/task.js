@@ -1,115 +1,71 @@
-import React from "react";
-import * as data from '../boxinfo.json';
-import {
-  StyleSheet,
-  Text,
-  View,
-  ScrollView,
-} from 'react-native';
+import React from 'react';
+import { FlatList, StyleSheet, Text, View } from 'react-native';
+import normalize from 'react-native-normalize';
 
+const boxinfo = require('../boxinfo.json');
+const numColumns = 3;
+// const ITEM_WIDTH =normalize(100);
+// const ITEM_HEIGHT =normalize(98);
 
-const BoxGrid = () => {
-	const BoxRow = ({textarray}) => {
-		if (textarray.length == 3) {
-			return (
-				<View style={styles.row}>
-					{textarray.map(value => (
-						<Box text={value} />
-					))}
-				</View>
-			);
-		} else {
-			return (
-				<View
-					style={{
-						flex: 1,
-						alignSelf: 'flex-start',
-						justifyContent: 'flex-start',
-						flexDirection: 'row',
-						left: 15,
-					}}>
-					{textarray.map(value => (
-						<Box text={value} />
-					))}
-				</View>
-			);
-		}
-	};
-	
-	//react child component to dynamically generate a box
-	const Box = ({text}) => {
-		return (
-				//include image logic here
-			<View style={styles.box}>
-				<Text style={styles.boxText}>{text}</Text>
-			</View>
-		);
-	};
-	
-	function get_split_array(arr) {
-		let len = arr.length;
-		let resarr = [];
-		let counter = 0;
-		let subarr = [];
-	
-		for (let i = 0; i < len; i++) {
-			if (counter === 3) {
-				counter = 0;
-				resarr.push(subarr);
-				subarr = [];
-			}
-			if (i === len - 1) {
-				resarr.push(subarr);
-			}
-			subarr.push(data.text[i]);
-			counter++;
-		}
-		return resarr;
-	}
-
-  const resarr = get_split_array(data.text);
+const Box = ({ title }) => {
   return (
-    <View style={styles.containerbox}>
-      {resarr.map(subarr => (
-        <BoxRow textarray={subarr} />
-      ))}
+    <View style={styles.box}>
+      <Text style={styles.boxTitle}>{title}</Text>
     </View>
   );
 };
 
-styles = StyleSheet.create({
-	containerbox: {
-    flex: 0.85,
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-    width: '100%',
+const BoxGrid = () => {
+  const renderItem = ({ item }) => {
+    return <Box title={item.title} />;
+  };
+
+  return (
+    <FlatList
+      data={boxinfo.DATA}
+      renderItem={renderItem}
+      keyExtractor={(item) => item.id}
+      numColumns={numColumns}
+      contentContainerStyle={styles.container}
+      columnWrapperStyle={styles.columnWrapper}
+    />
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    // padding: 16,
+		// justifyContent: 'center',
+		alignSelf: 'center',
+		width: normalize(345),
+		height:normalize(300),
   },
-  row: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
+  columnWrapper: {
+    justifyContent: 'flex-start'
   },
   box: {
-    width: 110,
-    height: 94,
-    borderWidth: 1,
+    // width: ITEM_WIDTH,
+    // height: ITEM_HEIGHT,
+    // backgroundColor: '#eee',
+    // borderRadius: 8,
+    // justifyContent: 'center',
+    // alignItems: 'center',
+    margin:normalize(10),
+		width:normalize(110),
+    height:normalize(94),
+    borderWidth:normalize(1),
     borderColor: '#000',
     justifyContent: 'center',
     backgroundColor: '#231732',
-    borderRadius: 10,
+    borderRadius:normalize(10),
     alignItems: 'center',
-    margin: 5,
+    margin:normalize(5),
   },
-  boxText: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    color: '#FFF',
-  },
-  emptyBox: {
-    width: 110,
-    height: 100,
-    margin: 5,
+  boxTitle: {
+    fontSize:normalize(18),
+    fontWeight:500,
+		color: '#FFF',
+		top: normalize(20)
   },
 });
 

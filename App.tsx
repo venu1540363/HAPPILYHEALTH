@@ -4,12 +4,12 @@ import BottomNavBar from './TabBar/Tab';
 import BoxWithGradientAndButton from './add/sub';
 import ScrollingBox from './service/serviceinfo';
 import BoxGrid from './taskbox/task';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 
 const App = () => {
   return (
     <View style={styles.container}>
-      <TopNavBar />
+      <TopNavBar /> 
       <BoxWithGradientAndButton />
       <ScrollingBox />
       <BoxGrid />
