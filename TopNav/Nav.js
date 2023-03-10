@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import {
   StyleSheet,
   Text,
@@ -101,7 +101,8 @@ const styles = StyleSheet.create({
   locationText: {
     color: '#FFF',
     position: 'absolute',
-    top:normalize(29),
+    fontSize: normalize(16),
+    top:normalize(28.5),
     left:normalize(45),
   },
   drop: {
@@ -115,8 +116,8 @@ const styles = StyleSheet.create({
     bottom:normalize(30),
   },
   menu: {
-    left:normalize(340),
-    bottom:normalize(55),
+    left:normalize(345),
+    bottom:normalize(53),
   },
   modalContainer: {
     flex: 1,

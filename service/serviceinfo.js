@@ -34,9 +34,8 @@ const ScrollingBox = () => {
         style={{
           borderBottomColor: '#684B8E',
           borderBottomWidth:2,
-          // paddingVertical: normalize(10)
-          // paddingTop:normalize(10),
-          // marginBottom:normalize(6),
+          left: normalize(5),
+          width:normalize(340),
           marginVertical:normalize(15),
         }}
       />
@@ -46,7 +45,7 @@ const ScrollingBox = () => {
 
 const styles = StyleSheet.create({
 	Scrcontainer: {
-    width:normalize(340),
+    width:normalize(344),
     // justifyContent: 'center',
     alignSelf: 'center',
     paddingTop:normalize(15),
@@ -59,7 +58,7 @@ const styles = StyleSheet.create({
     fontSize:normalize(16),
     // borderWidth: 2,
     height:normalize(158),
-    width:normalize(110),
+    width:normalize(112),
     borderRadius:normalize(10),
     color: '#FFF',
     backgroundColor: '#231732',

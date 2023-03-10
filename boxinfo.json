@@ -1,12 +1,44 @@
 {
-"DATA":[
-  { "id":"1","title": "My Tasks"},
-  { "id":"2","title": "Buy Tests"},
-  { "id":"3","title": "Healthopedia"},
-  { "id":"4","title": "Heath Wheel"},
-  { "id":"5","title": "Tracker"},
-  { "id":"6","title": "Groups"},
-  { "id":"7","title": "Social Feed"},
-  { "id":"8","title": "Leaderboard"}
-]
+  "DATA": [
+    {
+      "id": "1",
+      "title": "My Tasks",
+      "image": "require('/Projects/HAPPILYHEALTH/images/boxlogs/Task.png')"
+    },
+    {
+      "id": "2",
+      "title": "Buy Tests",
+      "image": "require('/Projects/HAPPILYHEALTH/images/boxlogs/Group.png')"
+    },
+    {
+      "id": "3",
+      "title": "Healthopedia",
+      "image": "require('/projects/HAPPILYHEALTH/images/boxlogs/Healthopaedia.png')"
+    },
+    {
+      "id": "4",
+      "title": "Heath Wheel",
+      "image": "require('/projects/HAPPILYHEALTH/images/boxlogs/Health_Score_card.png')"
+    },
+    {
+      "id": "5",
+      "title": "Tracker",
+      "image": "require('/projects/HAPPILYHEALTH/images/boxlogs/Health_Tracker.png')"
+    },
+    {
+      "id": "6",
+      "title": "Groups",
+      "image": "require('/projects/HAPPILYHEALTH/images/boxlogs/Groups.png')"
+    },
+    {
+      "id": "7",
+      "title": "Social Feed",
+      "image": "require('/projects/HAPPILYHEALTH/images/boxlogs/Social_Feed.png')"
+    },
+    {
+      "id": "8",
+      "title": "Leaderboard",
+      "image": "require('/projects/HAPPILYHEALTH/images/boxlogs/Leader_Board.png')"
+    }
+  ]
 }

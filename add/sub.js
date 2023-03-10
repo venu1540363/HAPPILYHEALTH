@@ -16,7 +16,7 @@ const BoxWithGradientAndButton = () => {
       style={{
         justifyContent: 'center',
         alignItems: 'center',
-        width: '90%',
+        width: '92%',
         alignSelf: 'center',
         height: '20%',
         borderRadius: 10,

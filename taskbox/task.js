@@ -1,15 +1,16 @@
 import React from 'react';
-import { FlatList, StyleSheet, Text, View } from 'react-native';
+import { FlatList, Image, StyleSheet, Text, View } from 'react-native';
 import normalize from 'react-native-normalize';
+import boxinfo from '/Projects/HAPPILYHEALTH/boxinfo.json';
 
-const boxinfo = require('../boxinfo.json');
 const numColumns = 3;
-// const ITEM_WIDTH =normalize(100);
-// const ITEM_HEIGHT =normalize(98);
+const ITEM_WIDTH =normalize(112);
+const ITEM_HEIGHT =normalize(94);
 
-const Box = ({ title }) => {
+const Box = ({ title, image }) => {
   return (
     <View style={styles.box}>
+      <Image source={{ uri: image }} style={styles.boxImage} />
       <Text style={styles.boxTitle}>{title}</Text>
     </View>
   );
@@ -17,7 +18,7 @@ const Box = ({ title }) => {
 
 const BoxGrid = () => {
   const renderItem = ({ item }) => {
-    return <Box title={item.title} />;
+    return <Box title={item.title} image={item.image} />;
   };
 
   return (
@@ -34,25 +35,16 @@ const BoxGrid = () => {
 
 const styles = StyleSheet.create({
   container: {
-    // padding: 16,
-		// justifyContent: 'center',
+    padding:normalize(16),
+		paddingTop: 0,
 		alignSelf: 'center',
-		width: normalize(345),
-		height:normalize(300),
   },
   columnWrapper: {
     justifyContent: 'flex-start'
   },
   box: {
-    // width: ITEM_WIDTH,
-    // height: ITEM_HEIGHT,
-    // backgroundColor: '#eee',
-    // borderRadius: 8,
-    // justifyContent: 'center',
-    // alignItems: 'center',
-    margin:normalize(10),
-		width:normalize(110),
-    height:normalize(94),
+    width: ITEM_WIDTH,
+    height: ITEM_HEIGHT,
     borderWidth:normalize(1),
     borderColor: '#000',
     justifyContent: 'center',
@@ -61,11 +53,18 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     margin:normalize(5),
   },
+  boxImage: {
+    width: ITEM_WIDTH - normalize(20),
+    height: ITEM_HEIGHT - normalize(50),
+    // resizeMode: 'contain',
+    // marginBottom: normalize(10),
+    // backgroundColor: '#FFF',
+  },
   boxTitle: {
     fontSize:normalize(18),
     fontWeight:500,
 		color: '#FFF',
-		top: normalize(20)
+		textAlign: 'center'
   },
 });
 
