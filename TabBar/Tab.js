@@ -1,69 +1,57 @@
-import React from 'react'
-import { StyleSheet } from 'react-native';
+import React from 'react';
+import {StyleSheet} from 'react-native';
 import Entypo from 'react-native-vector-icons/Entypo';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import {
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import {Text, TouchableOpacity, View} from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import normalize from 'react-native-normalize';
+import theme from '../theme';
 
 const BottomNavBar = () => {
-	return (
-		<View style={styles.bottomNav}>
-      <TouchableOpacity onPress={() => console.log('Navigate to Home Screen')}>
-        <Entypo name="home" size={normalize(20)} style={{alignSelf: 'center', color: 'black'}} />
+  return (
+    <View style={styles.bottomNav}>
+      <TouchableOpacity>
+        <Entypo name="home" size={20} style={styles.Icons} />
         <Text style={styles.bottomNavText}>Home</Text>
       </TouchableOpacity>
-      <TouchableOpacity onPress={() => console.log('Navigate to Home Screen')}>
-        <MaterialIcons name="search" size={normalize(20)} style={{alignSelf: 'center', color: 'black'}} />
+      <TouchableOpacity>
+        <MaterialIcons name="search" size={20} style={styles.Icons} />
         <Text style={styles.bottomNavText}>Discover</Text>
       </TouchableOpacity>
-      <TouchableOpacity onPress={() => console.log('Navigate to Home Screen')}>
-        <MaterialCommunityIcons
-          name="widgets"
-          size={normalize(20)}
-          style={{alignSelf: 'center', 
-          color: 'black',
-        }}
-        />
+      <TouchableOpacity>
+        <MaterialCommunityIcons name="widgets" size={20} style={styles.Icons} />
         <Text style={styles.bottomNavText}>Feed</Text>
       </TouchableOpacity>
-      <TouchableOpacity
-        onPress={() => console.log('Navigate to Settings Screen')}>
-        <Entypo name="star" size={normalize(20)} style={{alignSelf: 'center', color: 'black'}} />
+      <TouchableOpacity>
+        <Entypo name="star" size={20} style={styles.Icons} />
         <Text style={styles.bottomNavText}>Premium</Text>
       </TouchableOpacity>
-      <TouchableOpacity
-        onPress={() => console.log('Navigate to Profile Screen')}>
-        <MaterialIcons name="person" size={normalize(20)} style={{alignSelf: 'center', color: 'black'}} />
+      <TouchableOpacity>
+        <MaterialIcons name="person" size={20} style={styles.Icons} />
         <Text style={styles.bottomNavText}>Profile</Text>
       </TouchableOpacity>
     </View>
-	);
+  );
 };
 
 const styles = StyleSheet.create({
-	bottomNav: {
+  bottomNav: {
     flexDirection: 'row',
     justifyContent: 'space-around',
     alignItems: 'center',
-    backgroundColor: '#FFF',
-    position: 'absolute',
-    paddingVertical:normalize(8),
-    bottom:normalize(0),
-    left:normalize(0),
-    right:normalize(0),
-    borderTopRightRadius:normalize(10),
-    borderTopLeftRadius:normalize(10),
+    backgroundColor: theme.colors.light,
+    paddingVertical: theme.spacing.small,
+    borderTopRightRadius: normalize(10),
+    borderTopLeftRadius: normalize(10),
   },
   bottomNavText: {
-    fontSize:normalize(12),
-    marginTop: normalize(5),
-    color: 'black'
+    fontSize: theme.fontSizes.small,
+    color: theme.colors.dark,
   },
-})
+  Icons: {
+    alignSelf: 'center',
+    color: theme.colors.dark
+  },
+});
 
 export default BottomNavBar;

@@ -1,85 +1,80 @@
 import React from 'react';
 import props from '../info.json';
-import { Image, StyleSheet } from 'react-native';
-import { View, Text, ScrollView } from 'react-native';
+import {Image, StyleSheet} from 'react-native';
+import {View, Text, ScrollView} from 'react-native';
 import normalize from 'react-native-normalize';
+import theme from '../theme';
 
 const ScrollingBox = () => {
   return (
-    <View style={styles.Scrcontainer}>
-       <ScrollView horizontal>
-        <View style={styles.content}>
-    {props.scrolling.length !== 0 ?   props.scrolling.map( each => {
-      return  <View style={styles.item}>
-         <Image style={styles.image} source={require('../images/doc.png')}></Image>
-        <Text style={styles.name}>
-          <Text style={{fontWeight: 700,
-           fontSize:normalize(10),
-           position: 'absolute'
-        }}>{each.title}</Text> 
-          </Text> 
-          <Text style= {{color: '#FFF', fontSize:normalize(9), top:normalize(30), 
-          left:normalize(1),
-          fontWeight:normalize(300),
-          textAlign: 'auto',
-          padding:normalize(6),
-        }}>{each.name}</Text>
-        </View>
-    })
-    :null
-  }
-        </View>
+    <View style={styles.svStyle}>
+      <ScrollView horizontal>
+        {props.scrolling.length !== 0
+          ? props.scrolling.map(each => {
+              return (
+                <View key={each.id} style={styles.container}>
+                  <View>
+                            <Image
+                    source={require('../images/doc.png')}
+                    style={styles.image}></Image>
+                  </View>
+                  <View style={styles.textInBox}>
+                    <Text style={styles.heading}>{each.title}</Text>
+                    <Text style={styles.content}>{each.name}</Text>
+                  </View>
+                </View>
+              );
+            })
+          : null}
       </ScrollView>
-      <View
-        style={{
-          borderBottomColor: '#684B8E',
-          borderBottomWidth:2,
-          left: normalize(5),
-          width:normalize(340),
-          marginVertical:normalize(15),
-        }}
-      />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-	Scrcontainer: {
-    width:normalize(344),
-    // justifyContent: 'center',
-    alignSelf: 'center',
-    paddingTop:normalize(15),
+  svStyle: {
+    borderBottomColor: theme.colors.secondary,
+    borderBottomWidth: 2,
+    paddingBottom: theme.spacing.medium,
+    marginBottom: theme.spacing.medium,
   },
-  content: {
-    flexDirection: 'row', // display items in a row
-  },
-  item: {
-    marginRight:normalize(8),
-    fontSize:normalize(16),
-    // borderWidth: 2,
-    height:normalize(158),
-    width:normalize(112),
-    borderRadius:normalize(10),
-    color: '#FFF',
+  container: {
+    width: normalize(112),
+    height: normalize(148),
+    marginRight: theme.spacing.small,
     backgroundColor: '#231732',
-    textAlign: 'center',
-    paddingTop:normalize(50),
-    overflow: 'hidden',
+    borderRadius: 12,
+    alignItems: 'center',
   },
   image: {
-    // height: 50,
-    // bottom: 40,
-    // left: 20,
-    width: normalize(112),
-    justifyContent: 'center',
-    position: 'absolute',
+    width: normalize(110),
+    height: normalize(60),
+    borderTopRightRadius: 12,
+    borderTopLeftRadius: 12,
+  }, 
+  textInBox:{
+    alignItems:"center",
+    padding:normalize(6), //doubt1
+    flexDirection:"column",
+    justifyContent:"space-between",
   },
-  name: {
-    color: '#FFF',
-    top:normalize(30),
-    // fontWeight:500,
-    alignSelf: 'center'
+  heading: {
+    color: theme.colors.light,
+    fontFamily: 'SF Pro Display',
+    fontStyle: 'normal',
+    fontWeight: theme.fontWeight.bold,
+    fontSize: normalize(12), //doubt2
+    margin:4
   },
+  content:{
+    color: theme.colors.light,
+    fontFamily: 'SF Pro Display',
+    fontStyle: 'normal',
+    fontWeight: theme.fontWeight.light,
+    fontSize: normalize(10),
+
+  }
+ 
 });
 
 export default ScrollingBox;
